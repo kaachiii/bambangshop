@@ -48,15 +48,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   ✅ Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   ✅ Commit: `Create Subscriber model struct.`
+    -   ✅ Commit: `Create Notification model struct.`
+    -   ✅ Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   ✅ Commit: `Implement add function in Subscriber repository.`
+    -   ✅ Commit: `Implement list_all function in Subscriber repository.`
+    -   ✅ Commit: `Implement delete function in Subscriber repository.`
+    -   ✅ Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,11 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. Dalam kasus ini, jika kita hanya memiliki satu jenis observer, maka kita dapat menggunakan satu Model struct tanpa perlu interface/trait. Namun, menggunakan trait tetap direkomendasikan dalam pola Observer untuk memastikan fleksibilitas di masa depan, terutama jika kita ingin menambahkan lebih banyak observer dengan perilaku berbeda.
+
+2. Menggunakan DashMap lebih efektif daripada Vec dalam kasus ini karena memungkinkan pencarian cepat (O(1)) dibandingkan dengan pencarian linier di Vec (O(n)). Selain itu, DashMap mendukung akses paralel yang aman, yang berguna jika ada banyak operasi pembacaan atau penulisan data secara bersamaan. 
+
+3. DashMap diperlukan karena mendukung akses multithreading tanpa perlu manual mengelola locks. Singleton hanya memastikan ada satu instance dari daftar subscriber, tetapi tidak otomatis membuatnya thread-safe. Jika hanya menggunakan Singleton, tetap diperlukan Mutex atau RwLock.
 
 #### Reflection Publisher-2
 
