@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   ✅ Commit: `Implement delete function in Subscriber repository.`
     -   ✅ Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   ✅ Commit: `Create Notification service struct skeleton.`
+    -   ✅ Commit: `Implement subscribe function in Notification service.`
+    -   ✅ Commit: `Implement subscribe function in Notification controller.`
+    -   ✅ Commit: `Implement unsubscribe function in Notification service.`
+    -   ✅ Commit: `Implement unsubscribe function in Notification controller.`
+    -   ✅ Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -84,5 +84,10 @@ This is the place for you to write reflections:
 3. DashMap diperlukan karena mendukung akses multithreading tanpa perlu manual mengelola locks. Singleton hanya memastikan ada satu instance dari daftar subscriber, tetapi tidak otomatis membuatnya thread-safe. Jika hanya menggunakan Singleton, tetap diperlukan Mutex atau RwLock.
 
 #### Reflection Publisher-2
+1. Kita perlu memisahkan Service dan Repository agar Repositori dan Service fokus pada fungsinya masing-masing. Repository menangani akses ke database, sedangkan Service mengelola logika bisnis. Hal ini sejalan dengan salah satu prinsip SOLID, yaitu Single Responsibility Principle (SRP) sehingga kode lebih terstruktur dan mudah dipelihara tanpa mengganggu fungsi lainnya.
+
+2. Jika hanya menggunakan Model tanpa layer lain, maka akan terjadi coupling tinggi, di mana logika bisnis, akses database, dan manipulasi data bercampur dalam satu tempat. Ketika Program, Subscriber, dan Notification saling berinteraksi, perubahan pada satu model dapat berdampak luas ke model lain sehingga meningkatkan kompleksitas dan sulitnya pemeliharaan kode. Dengan memisahkan layer seperti Service dan Repository membantu kita mengurangi ketergantungan antar-model dan membuat kode lebih fleksibel.
+
+3. Dengan Postman, kita dapat mengirim berbagai HTTP method, menambahkan credential, form data, dan melihat response secara real-time. Fitur seperti automated testing, environment variables, dan collection runner juga sangat berguna dalam proyek team untuk memastikan API tetap berjalan dengan baik selama pengembangan.
 
 #### Reflection Publisher-3
